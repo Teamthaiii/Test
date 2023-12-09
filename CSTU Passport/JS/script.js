@@ -153,7 +153,7 @@ async function submitForm(event) {
       console.log("Form data submitted successfully!");
 
       // Format JSON data for display
-      const formattedData = Object.entries(responseData.data)
+      let formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "first_name")
         .map(([key, value]) => `${key}: ${value}`)
         .join("\n");
@@ -162,8 +162,21 @@ async function submitForm(event) {
       var colDiv = document.createElement('div');
       colDiv.className = 'col';
 
+      // Create a new h4 element flname
       var h4Element = document.createElement('h4');
-      h4Element.id = 'data';
+      h4Element.id = 'flname';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
+
+      // Format JSON data for display
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "student_id")
+        .map(([key, value]) => `${key}: ${value}`)
+        .join("\n");
+
+      // Create a new h4 element IDStudent
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'IDStudent';
       h4Element.textContent = formattedData;
       colDiv.appendChild(h4Element);
 
