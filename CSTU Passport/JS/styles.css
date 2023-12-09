@@ -274,13 +274,22 @@ body {
 
 .col {
   width: 370px;
-  background: #ffe6e6;
+  background: linear-gradient(135deg, #f33466a8, #fdabc175);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: rgba(255, 255, 255, 0.18);
   border-radius: 10px;
   margin-bottom: 5%;
   padding: 20px 20px;
   margin: 0 15px;
+  color: #581f1f;
   box-sizing: border-box;
   transition: 0.5s;
+}
+
+.col:hover {
+  box-shadow: 0px 8px 32px #f33466d9;
+  cursor: pointer;
 }
 
 .row span {

@@ -38,20 +38,30 @@ fetch(`http://${window.location.hostname}:${port}/getrecords`)
   })
   .catch(error => console.log(error));
   
-// Function to validate Firstname and Lastname
-function validateName() {
-  const fullnameInput = document.getElementById("fullname");
-  const names = fullnameInput.value.trim().split(" ");
-  const errorElement = document.getElementById("fullnameError");
-
-  if (names.length !== 2) {
-    errorElement.textContent = "Please enter both your Firstname and Lastname.";
-    return false;
-  } else {
+  function validateName() {
+    const fullnameInput = document.getElementById("fullname");
+    const names = fullnameInput.value.trim().split(" ");
+    const errorElement = document.getElementById("fullnameError");
+  
+    if (names.length !== 2) {
+      errorElement.textContent = "Please enter both your Firstname and Lastname.";
+      return false;
+    }
+  
+    const [firstName, lastName] = names;
+  
+    if (!isFirstLetterUppercase(firstName) || !isFirstLetterUppercase(lastName)) {
+      errorElement.textContent = "First letter of both Firstname and Lastname should be uppercase.";
+      return false;
+    }
+  
     errorElement.textContent = ""; // Clear the error message when valid
+    return true;
   }
-  return true;
-}
+  
+  function isFirstLetterUppercase(name) {
+    return /^[A-Z]/.test(name);
+  }
 
 // Function to validate Student ID
 function validateStudentID() {
