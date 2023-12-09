@@ -121,7 +121,7 @@
 
         <!-- Submit Button -->
         <div class="form-group">
-          <input type="submit" value="Submit" onclick="uncheckbox()"/>
+          <input type="submit" value="Submit"/>
         </div>
       </form>
     </div>
@@ -139,12 +139,6 @@
   <!-- JavaScript -->
   <script src="script.js"></script>
   <script>
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    function uncheckbox() {
-      checkboxes.forEach(function (checkbox) {
-          checkbox.checked = false;
-      });
-    }
 
     const name = document.getElementById('fullname');
     const IDStudent = document.getElementById('studentID');
