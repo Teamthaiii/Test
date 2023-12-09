@@ -1,0 +1,241 @@
+<!--
+  File: index.html
+  Author: CS100 Team
+  Date Created: 23 July 2023
+  Copyright: CSTU
+  Description: HTML code of CSTU Passport that validate with JS
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+  <title>Forms - CSTU Passport</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html"><label for="" class="nav-btn"><div class="nav-box" id="nav-box-home"><h1 class="nav-btn-text">Home</h1><i class="bi bi-play-fill"></i></div></label></a>
+    <input type="checkbox" id="check-upload">
+    <label for="check-upload" class="nav-btn"><div class="nav-box" id="nav-box-upload"><h1 class="nav-btn-text">UPLOAD ACTIVITY</h1><i class="bi bi-play-fill"></i></div></label>
+
+    <!-- Form Container -->
+    <div class="form-container">
+      <h1>CSTU Passport</h1>
+      <!-- Main Form -->
+      <form id="myForm" action="#" method="post">
+        <!-- Firstname and Lastname Field -->
+        <div class="form-group">
+          <label for="fullname">Firstname and Lastname</label>
+          <input type="text" id="fullname" name="fullname" />
+          <small>Only enter your first name and last name, middle name is not necessary.</small>
+          <span id="fullnameError" class="error"></span>
+        </div>
+        
+        <!-- Student ID Field -->
+        <div class="form-group">
+          <label for="studentID">Student ID</label>
+          <input type="text" id="studentID" name="studentID" />
+          <small>Please enter your 10-digit student ID.</small>
+          <span id="studentIDError" class="error"></span>
+        </div>
+        
+        <!-- University Email Field -->
+        <div class="form-group">
+          <label for="email">University Email</label>
+          <input type="email" id="email" name="email" />
+          <small>Please provide your university email in the format "xxx.yyy@dome.tu.ac.th".</small>
+          <span id="emailError" class="error"></span>
+        </div>
+
+        <!-- Work/Activity Title Field -->
+        <div class="form-group">
+          <label for="workTitle">Work/Activity Title</label>
+          <input type="text" id="workTitle" name="workTitle" />
+        </div>
+
+        <!-- Type of Work/Activity Field -->
+        <div class="form-group">
+          <label for="activityType">Type of Work/Activity</label>
+          <select id="activityType" name="activityType">
+            <option value="" disabled selected>Select an option</option>
+          </select>
+        </div>
+
+        <!-- Academic Year Field -->
+        <div class="form-group">
+          <label for="academicYear">Academic Year</label>
+          <select id="academicYear" name="academicYear">
+            <option value="" disabled selected>Select an option</option>
+            <option value="2561">2561</option>
+            <option value="2562">2562</option>
+            <option value="2563">2563</option>
+            <option value="2564">2564</option>
+            <option value="2565">2565</option>
+            <option value="2566">2566</option>
+            <option value="2567">2567</option>
+            <option value="2568">2568</option>
+            <option value="2569">2569</option>
+          </select>
+        </div>
+
+        <!-- Semester Field -->
+        <div class="form-group">
+          <label for="semester">Semester</label>
+          <select id="semester" name="semester">
+            <option value="" disabled selected>Select an option</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="Summer">Summer</option>
+          </select>
+        </div>
+
+        <!-- Start Date/Time Field -->
+        <div class="form-group">
+          <label for="startDate">Start Date/Time</label>
+          <input type="datetime-local" id="startDate" name="startDate" />
+        </div>
+
+        <!-- End Date/Time Field -->
+        <div class="form-group">
+          <label for="endDate">End Date/Time</label>
+          <input type="datetime-local" id="endDate" name="endDate" />
+        </div>
+
+        <!-- Location Field -->
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" />
+        </div>
+
+        <!-- Description Field -->
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="4"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+          <input type="submit" value="Submit" onclick="uncheckbox()"/>
+        </div>
+      </form>
+    </div>
+  </nav>
+
+  <div class="banner">
+    <h4>ACTIVITY</h4>
+  </div>
+
+  <div class="activity-container">
+      <div class="row" id="row">
+      </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+  <script>
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    function uncheckbox() {
+      checkboxes.forEach(function (checkbox) {
+          checkbox.checked = false;
+      });
+    }
+
+    const name = document.getElementById('fullname');
+    const IDStudent = document.getElementById('studentID');
+    const Umail = document.getElementById('email');
+    const ActTitle = document.getElementById('workTitle');
+    const ActType = document.getElementById('activityType');
+    const AcdYear = document.getElementById('academicYear');
+    const Sem = document.getElementById('semester');
+    const StartDate = document.getElementById('startDate');
+    const EndDate = document.getElementById('endDate');
+    const place = document.getElementById('location');
+    const comment = document.getElementById('description');
+    
+    function addcontent() {
+      // Create a new column div
+      var colDiv = document.createElement('div');
+      colDiv.className = 'col';
+
+      // Create a new h4 element flname
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'flname';
+      h4Element.textContent = name.value;
+      colDiv.appendChild(h4Element);
+
+      // Create a new h4 element IDStudent
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'IDStudent';
+      h4Element.textContent = IDStudent.value;
+      colDiv.appendChild(h4Element);
+
+      // Create a new h4 element University Email
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Umail';
+      h4Element.textContent = Umail.value;
+      colDiv.appendChild(h4Element);
+
+      // Create a new h4 element Activity Title
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Act-Title';
+      h4Element.textContent = ActTitle.value;
+      colDiv.appendChild(h4Element);
+
+      // Create a new h4 element Activity Type
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Act-Type';
+      h4Element.textContent = ActType.value;
+      colDiv.appendChild(h4Element);
+
+      // Create a new h4 element Academic year
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Acd-Year';
+      h4Element.textContent = AcdYear.value;
+      colDiv.appendChild(h4Element);
+
+      // Create a new h4 element Semester
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Sem';
+      h4Element.textContent = Sem.value;
+      colDiv.appendChild(h4Element);
+
+      // Create a new h4 element Start Date
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'start-date';
+      h4Element.textContent = StartDate.value;
+      colDiv.appendChild(h4Element);
+
+      // Create a new h4 element End Date
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'end-date';
+      h4Element.textContent = EndDate.value;
+      colDiv.appendChild(h4Element);
+
+      // Create a new h4 element Location
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'place';
+      h4Element.textContent = place.value;
+      colDiv.appendChild(h4Element);
+
+      // Create a new h4 element Description
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'comment';
+      h4Element.textContent = comment.value;
+      colDiv.appendChild(h4Element);
+
+      // Append the column div to the row
+      var row = document.getElementById('row');
+      row.appendChild(colDiv);
+
+
+    }
+
+  </script>
+</body>
+</html>

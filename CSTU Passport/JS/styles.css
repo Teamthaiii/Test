@@ -1,0 +1,264 @@
+/*
+  File: styles.css
+  Author: CS100 Team
+  Date Created: 23 July 2023
+  Copyright: CSTU
+  Description: CSS code of CSTU Passport that validate with JS
+*/
+
+/* Set the font family for the entire body */
+*{
+  font-family: 'Kanit', sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+/* Styling for navigator */
+.nav-box {
+  font-size: 15px;
+  height: 70px;
+  width: 210px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 1px 0 50px #888;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  transform: translateX(-200px);
+  position: fixed;
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+#nav-box-home .bi {
+  text-shadow: 0 0 0px rgba(18, 61, 61, 0),
+                 0 0 0px rgba(31, 83, 83, 0);
+  animation: blinking2 1.5s infinite alternate;
+}
+
+@keyframes blinking2 {
+  100%{
+    text-shadow: 0 0 4px #f3346793,
+                 0 0 4px #f3346793;
+  }
+}
+
+#nav-box-upload .bi {
+  text-shadow: 0 0 0px rgba(18, 61, 61, 0),
+                 0 0 0px rgba(31, 83, 83, 0);
+  animation: blinking 1.5s infinite alternate;
+}
+
+@keyframes blinking {
+  100%{
+    text-shadow: 0 0 5px rgb(248, 248, 248),
+                 0 0 5px rgb(255, 255, 255);
+  }
+}
+
+#nav-box-home .bi {
+  position: relative;
+  left: 70px;
+  color: #f33466;
+}
+
+#nav-box-upload .bi {
+  position: relative;
+  left: 14px;
+  color: white;
+}
+
+#nav-box-upload {
+  top: 15%;
+  background: #f33466;
+}
+
+#nav-box-upload h1{
+  color: white;
+}
+
+#nav-box-home {
+  top: 5%;
+}
+
+.nav-box:hover {
+  transform: translateX(-15px);
+}
+
+.nav-box h1 {
+  font-size: 20px;
+  color: #f33466;
+}
+
+#check-upload {
+  display: none;
+}
+
+#check-home {
+  display: none;
+}
+
+#check-upload:checked ~ .form-container{
+  max-width: 1000px;
+  max-height: 160%;
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+/* Styling for the form container */
+.form-container {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  max-width: 20px;
+  max-height: 20px;
+  margin: 20px auto;
+  left: -100px;
+  top: 3%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  transition: 1.5s;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: rgba(255, 255, 255, 0.18);
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.37);
+  z-index: 0;
+}
+
+
+
+/* Center-align the heading and add margin at the bottom */
+.form-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styling for each form group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Styling for form group labels */
+.form-group label {
+  display: block;
+  font-weight: bold;
+}
+
+/* Styling for various form input types */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea,
+.form-group input[type="datetime-local"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Allow vertical resizing for textareas */
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Styling for select dropdowns */
+.form-group select {
+  width: 100%;
+}
+
+/* Styling for the submit button */
+.form-group input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Styling for small helper text */
+.form-group small {
+  font-size: 12px;
+  color: #888;
+}
+
+/* New styles for error messages */
+
+/* Position the error message relatively within the form group */
+.form-group {
+  position: relative;
+}
+
+/* Styling for error messages */
+.error {
+  color: red;
+  display: block;
+  margin-top: 5px;
+}
+
+.banner {
+  height: 30vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: black;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.banner h4 {
+  color: white;
+  font-size: 70px;
+}
+
+.activity-container {
+  margin-top: 3%;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.col {
+  width: 350px;
+  background: #ffe6e6;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 20px 20px;
+  margin: 0 15px;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+.block-title {
+  font-size: 50px;
+}
