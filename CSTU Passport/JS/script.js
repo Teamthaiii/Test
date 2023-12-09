@@ -138,23 +138,18 @@ async function submitForm(event) {
 
   console.log(data);
 
-  try {
-    // Send data to the backend using POST request
-    const response = await fetch(`http://${window.location.hostname}:${port}/record`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+  // Send data to the backend using POST request
 
-    if (response.ok) {
-      const responseData = await response.json();
-      console.log("Form data submitted successfully!");
+  window.onload = function{
+  const response = await fetch(`http://${window.location.hostname}:${port}/record`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
 
-      // Display success message with formatted data
-      //create div class col
-      var colDiv = document.createElement('div');
+  var colDiv = document.createElement('div');
       colDiv.className = 'col';
 
       // Format JSON data for display to h4 fname
@@ -292,7 +287,11 @@ async function submitForm(event) {
       // Append the column div to the row
       var row = document.getElementById('row');
       row.appendChild(colDiv);
+    }
 
+
+
+  try {
     // Send data to the backend using POST request
     const response = await fetch(`http://${window.location.hostname}:${port}/record`, {
       method: "POST",
@@ -465,10 +464,10 @@ async function submitForm(event) {
       // Display error message
       alert("Failed to submit form data. Please try again.");
     }
-  }
   } catch (error) {
     console.error("An error occurred while submitting form data:", error);
   }
+}
 
 // Event listener for form submission
 document.getElementById("myForm").addEventListener("submit", submitForm);
@@ -479,3 +478,5 @@ document
   .getElementById("studentID")
   .addEventListener("input", validateStudentID);
 document.getElementById("email").addEventListener("input", validateEmail);
+
+
