@@ -154,13 +154,27 @@ async function submitForm(event) {
 
       // Format JSON data for display
       const formattedData = Object.entries(responseData.data)
-        .map(([key, value]) => `"${key}": "${value}"`)
+        .filter(([key, value]) => key === "first_name")
+        .map(([key, value]) => `${key}: ${value}`)
         .join("\n");
+
+      // Set the content of the h4 element with id 'flname'
+      document.getElementById('flname').textContent = formattedData;
 
       // Display success message with formatted data
       alert(responseData.message + "\n" + formattedData);
 
       document.getElementById("myForm").reset();
+
+      //Function close formbox
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      function uncheckbox() {
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = false;
+        });
+      }
+      uncheckbox();
+      
     } else {
       console.error("Failed to submit form data.");
 
