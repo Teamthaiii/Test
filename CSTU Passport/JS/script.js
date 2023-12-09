@@ -12,32 +12,72 @@ const config = {
 const port = 8000;
 
 
-fetch(`../Backend/databases/records.json`)
-  .then(res => {
-    return res.json();
-  })
-  .then(data => {
-    data.forEach(record => {
-      const markup = `<div class="col">
-                        <span>${record.first_name}</span>
-                        <span>${record.last_name}</span>
-                        <h4>${record.student_id}</h4>
-                        <h4>${record.email}</h4>
-                        <h4>${record.title}</h4>
-                        <h4>${record.type_of_work_id}</h4>
-                        <h4>${record.academic_year}</h4>
-                        <h4>${record.semester}</h4>
-                        <h4>${record.start_date}</h4>
-                        <h4>${record.end_date}</h4>
-                        <h4>${record.location}</h4>
-                        <h4>${record.description}</h4>
-                      </div>
-                      `;
+// fetch(`http://${window.location.hostname}:${port}/record`)
+//   .then(res => {
+//     return res.json();
+//   })
+//   .then(data => {
+//     data.forEach(record => {
+//       const markup = `<div class="col">
+//                         <span>${record.first_name}</span>
+//                         <span>${record.last_name}</span>
+//                         <h4>${record.student_id}</h4>
+//                         <h4>${record.email}</h4>
+//                         <h4>${record.title}</h4>
+//                         <h4>${record.type_of_work_id}</h4>
+//                         <h4>${record.academic_year}</h4>
+//                         <h4>${record.semester}</h4>
+//                         <h4>${record.start_date}</h4>
+//                         <h4>${record.end_date}</h4>
+//                         <h4>${record.location}</h4>
+//                         <h4>${record.description}</h4>
+//                       </div>
+//                       `;
       
-          document.querySelector('.row').insertAdjacentHTML('beforeend', markup);
-    });
-  })
-  .catch(error => console.log(error));
+//           document.querySelector('.row').insertAdjacentHTML('beforeend', markup);
+//     });
+//   })
+//   .catch(error => console.log(error));
+
+  // Function to fetch records from the backend
+async function fetchRecords() {
+  try {
+    const response = await fetch(`http://${window.location.hostname}:${port}/record`);
+    if (response.ok) {
+      console.log("fetch success!!");
+      const data = await response.json();
+      return data;
+    } else {
+      console.error("Failed to fetch records.");
+      return [];
+    }
+  } catch (error) {
+    console.error("An error occurred while fetching records:", error);
+    return [];
+  }
+}
+
+function OnloadRecordDisplay(RecordData){
+  RecordData.forEach(record => {
+    const markup = `<div class="col">
+                      <span>${record.first_name}</span>
+                      <span>${record.last_name}</span>
+                      <h4>${record.student_id}</h4>
+                      <h4>${record.email}</h4>
+                      <h4>${record.title}</h4>
+                      <h4>${record.type_of_work_id}</h4>
+                      <h4>${record.academic_year}</h4>
+                      <h4>${record.semester}</h4>
+                      <h4>${record.start_date}</h4>
+                      <h4>${record.end_date}</h4>
+                      <h4>${record.location}</h4>
+                      <h4>${record.description}</h4>
+                    </div>
+                    `;
+
+    document.querySelector('.row').insertAdjacentHTML('beforeend', markup);
+  });
+}
   
 // // Function to validate Firstname and Lastname
 // function validateName() {
