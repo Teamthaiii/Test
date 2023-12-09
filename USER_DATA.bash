@@ -16,9 +16,6 @@ sudo yum install -y nodejs npm || {
 # Install pm2 globally using npm
 sudo npm install pm2 -g
 
-# Install express multer body-parser
-sudo npm install express multer body-parser
-
 # Go to the home directory of the current user
 cd /home/ec2-user
 
@@ -45,6 +42,7 @@ sudo systemctl start nginx
 sudo systemctl enable nginx
 
 sudo cp -r /home/ec2-user/Test/'CSTU Passport'/JS /usr/share/nginx/html/
+sudo cp -r /home/ec2-user/Test/'CSTU Passport'/Backend /usr/share/nginx/html/
 sudo cp -r /home/ec2-user/Test/'CSTU Passport'/image /usr/share/nginx/html/
 sudo cp /home/ec2-user/Test/'CSTU Passport'/index.html /usr/share/nginx/html/
 sudo cp /home/ec2-user/Test/'CSTU Passport'/script.js /usr/share/nginx/html/
