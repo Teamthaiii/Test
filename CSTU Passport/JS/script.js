@@ -166,6 +166,10 @@ async function submitForm(event) {
       h4Element.textContent = formattedData;
       colDiv.appendChild(h4Element);
 
+      // Append the column div to the row
+      var row = document.getElementById('row');
+      row.appendChild(colDiv);
+
       alert(responseData.message + "\n" + formattedData);
 
       var checkboxes = document.querySelectorAll('input[type="checkbox"]');
