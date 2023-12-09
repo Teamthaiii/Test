@@ -129,6 +129,24 @@ app.get('/getActivityType', (req, res) => {
     });
 });
 
+// GET endpoint to retrieve records types from 'records.json' file
+app.get('/getrecords', (req, res) => {
+  fs.readFile('databases/records.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading records.json:', err);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+
+    try {
+      const records = JSON.parse(data);
+      return res.status(200).json(records);
+    } catch (err) {
+      console.error('Error parsing records.json:', err);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+});
+
 // GET endpoint to retrieve list of passport form from 'records.json' file
 app.get('/getPassports', (req, res) => {
   fs.readFile('databases/records.json', 'utf8', (err, data) => {
