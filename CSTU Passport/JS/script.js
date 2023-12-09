@@ -11,7 +11,7 @@ const config = {
 };
 const port = 8000;
 
-fetch('../Backend/databases/records.json')
+fetch(`http://${window.location.hostname}:${port}/record`)
   .then(res => {
     return res.json();
   })
