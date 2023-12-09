@@ -152,7 +152,30 @@ async function submitForm(event) {
       const responseData = await response.json();
       console.log("Form data submitted successfully!");
 
-      // Display success message with formatted data
+      alert("submit success!!!");
+      
+
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      function uncheckbox() {
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = false;
+        });
+      }
+
+      uncheckbox();
+
+      document.getElementById("myForm").reset();
+    } else {
+      console.error("Failed to submit form data.");
+
+      // Display error message
+      alert("Failed to submit form data. Please try again.");
+    }
+  } catch (error) {
+    console.error("An error occurred while submitting form data:", error);
+  }
+
+  // Display success message with formatted data
       //create div class col
       var colDiv = document.createElement('div');
       colDiv.className = 'col';
@@ -292,28 +315,6 @@ async function submitForm(event) {
       // Append the column div to the row
       var row = document.getElementById('row');
       row.appendChild(colDiv);
-
-      alert("submit success!!!");
-
-      var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-      function uncheckbox() {
-        checkboxes.forEach(function (checkbox) {
-            checkbox.checked = false;
-        });
-      }
-
-      uncheckbox();
-
-      document.getElementById("myForm").reset();
-    } else {
-      console.error("Failed to submit form data.");
-
-      // Display error message
-      alert("Failed to submit form data. Please try again.");
-    }
-  } catch (error) {
-    console.error("An error occurred while submitting form data:", error);
-  }
 }
 
 // Event listener for form submission
