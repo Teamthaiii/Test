@@ -97,12 +97,6 @@ function populateActivityTypes(activityTypes) {
 document.addEventListener("DOMContentLoaded", async () => {
   const activityTypes = await fetchActivityTypes();
   populateActivityTypes(activityTypes);
-
-// Check if there is data in localStorage
-const storedData = localStorage.getItem("responseDataData");
-if (storedData) {
-  displayFormData(JSON.parse(storedData));
-}
 });
 
 // Function to submit the form
@@ -158,155 +152,300 @@ async function submitForm(event) {
       const responseData = await response.json();
       console.log("Form data submitted successfully!");
 
-      // Store the responseData.data in localStorage
-      localStorage.setItem("responseDataData", JSON.stringify(responseData.data));
+      // Display success message with formatted data
+      //create div class col
+      var colDiv = document.createElement('div');
+      colDiv.className = 'col';
 
-      // Display the form data
-      displayFormData(responseData.data);
+      // Format JSON data for display to h4 fname
+      let formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "first_name")
+        .map(([key, value]) => `${value} `)
+        .join("\n");
 
+      var spanElement = document.createElement('span');
+      spanElement.id = 'fname';
+      spanElement.textContent = formattedData;
+      colDiv.appendChild(spanElement);
 
-      function displayFormData(data) {
-        // Display success message with formatted data
-        //create div class col
-        var colDiv = document.createElement('div');
-        colDiv.className = 'col';
+      // Format JSON data for display to h4 lname
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "last_name")
+        .map(([key, value]) => `${value}`)
+        .join("\n");
 
-        // Format JSON data for display to h4 fname
-        let formattedData = Object.entries(responseData.data)
-          .filter(([key, value]) => key === "first_name")
-          .map(([key, value]) => `${value} `)
-          .join("\n");
+      var spanElement = document.createElement('span');
+      spanElement.id = 'lname';
+      spanElement.textContent = formattedData;
+      colDiv.appendChild(spanElement);
 
-        var spanElement = document.createElement('span');
-        spanElement.id = 'fname';
-        spanElement.textContent = formattedData;
-        colDiv.appendChild(spanElement);
+      // Format JSON data for display to h4 IDStudent
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "student_id")
+        .map(([key, value]) => `Student ID : ${value}`)
+        .join("\n");
 
-        // Format JSON data for display to h4 lname
-        formattedData = Object.entries(responseData.data)
-          .filter(([key, value]) => key === "last_name")
-          .map(([key, value]) => `${value}`)
-          .join("\n");
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'IDStudent';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
 
-        var spanElement = document.createElement('span');
-        spanElement.id = 'lname';
-        spanElement.textContent = formattedData;
-        colDiv.appendChild(spanElement);
+      // Format JSON data for display to h4 Umail
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "email")
+        .map(([key, value]) => `Email : ${value}`)
+        .join("\n");
 
-        // Format JSON data for display to h4 IDStudent
-        formattedData = Object.entries(responseData.data)
-          .filter(([key, value]) => key === "student_id")
-          .map(([key, value]) => `Student ID : ${value}`)
-          .join("\n");
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Umail';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
 
-        var h4Element = document.createElement('h4');
-        h4Element.id = 'IDStudent';
-        h4Element.textContent = formattedData;
-        colDiv.appendChild(h4Element);
+      // Format JSON data for display to h4 Act-Title
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "title")
+        .map(([key, value]) => `Title : ${value}`)
+        .join("\n");
 
-        // Format JSON data for display to h4 Umail
-        formattedData = Object.entries(responseData.data)
-          .filter(([key, value]) => key === "email")
-          .map(([key, value]) => `Email : ${value}`)
-          .join("\n");
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Act-Title';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
 
-        var h4Element = document.createElement('h4');
-        h4Element.id = 'Umail';
-        h4Element.textContent = formattedData;
-        colDiv.appendChild(h4Element);
+      // Format JSON data for display to h4 Act-Type
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "type_of_work_id")
+        .map(([key, value]) => `Type of activity : ${value}`)
+        .join("\n");
 
-        // Format JSON data for display to h4 Act-Title
-        formattedData = Object.entries(responseData.data)
-          .filter(([key, value]) => key === "title")
-          .map(([key, value]) => `Title : ${value}`)
-          .join("\n");
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Act-Type';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
 
-        var h4Element = document.createElement('h4');
-        h4Element.id = 'Act-Title';
-        h4Element.textContent = formattedData;
-        colDiv.appendChild(h4Element);
+      // Format JSON data for display to h4 Acd-Year
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "academic_year")
+        .map(([key, value]) => `Acadamic year : ${value}`)
+        .join("\n");
 
-        // Format JSON data for display to h4 Act-Type
-        formattedData = Object.entries(responseData.data)
-          .filter(([key, value]) => key === "type_of_work_id")
-          .map(([key, value]) => `Type of activity : ${value}`)
-          .join("\n");
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Acd-Year';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
 
-        var h4Element = document.createElement('h4');
-        h4Element.id = 'Act-Type';
-        h4Element.textContent = formattedData;
-        colDiv.appendChild(h4Element);
+      // Format JSON data for display to h4 Sem
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "semester")
+        .map(([key, value]) => `Semester : ${value}`)
+        .join("\n");
 
-        // Format JSON data for display to h4 Acd-Year
-        formattedData = Object.entries(responseData.data)
-          .filter(([key, value]) => key === "academic_year")
-          .map(([key, value]) => `Acadamic year : ${value}`)
-          .join("\n");
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Sem';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
 
-        var h4Element = document.createElement('h4');
-        h4Element.id = 'Acd-Year';
-        h4Element.textContent = formattedData;
-        colDiv.appendChild(h4Element);
+      // Format JSON data for display to h4 start-date
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "start_date")
+        .map(([key, value]) => `Start date : ${value}`)
+        .join("\n");
 
-        // Format JSON data for display to h4 Sem
-        formattedData = Object.entries(responseData.data)
-          .filter(([key, value]) => key === "semester")
-          .map(([key, value]) => `Semester : ${value}`)
-          .join("\n");
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'start-date';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
 
-        var h4Element = document.createElement('h4');
-        h4Element.id = 'Sem';
-        h4Element.textContent = formattedData;
-        colDiv.appendChild(h4Element);
+      // Format JSON data for display to h4 end-date
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "end_date")
+        .map(([key, value]) => `End date : ${value}`)
+        .join("\n");
 
-        // Format JSON data for display to h4 start-date
-        formattedData = Object.entries(responseData.data)
-          .filter(([key, value]) => key === "start_date")
-          .map(([key, value]) => `Start date : ${value}`)
-          .join("\n");
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'end-date';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
 
-        var h4Element = document.createElement('h4');
-        h4Element.id = 'start-date';
-        h4Element.textContent = formattedData;
-        colDiv.appendChild(h4Element);
+      // Format JSON data for display to h4 place
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "location")
+        .map(([key, value]) => `Location : ${value}`)
+        .join("\n");
 
-        // Format JSON data for display to h4 end-date
-        formattedData = Object.entries(responseData.data)
-          .filter(([key, value]) => key === "end_date")
-          .map(([key, value]) => `End date : ${value}`)
-          .join("\n");
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'place';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
 
-        var h4Element = document.createElement('h4');
-        h4Element.id = 'end-date';
-        h4Element.textContent = formattedData;
-        colDiv.appendChild(h4Element);
+      // Format JSON data for display to h4 place
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "description")
+        .map(([key, value]) => `Description : ${value}`)
+        .join("\n");
 
-        // Format JSON data for display to h4 place
-        formattedData = Object.entries(responseData.data)
-          .filter(([key, value]) => key === "location")
-          .map(([key, value]) => `Location : ${value}`)
-          .join("\n");
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'comment';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
 
-        var h4Element = document.createElement('h4');
-        h4Element.id = 'place';
-        h4Element.textContent = formattedData;
-        colDiv.appendChild(h4Element);
+      // Append the column div to the row
+      var row = document.getElementById('row');
+      row.appendChild(colDiv);
 
-        // Format JSON data for display to h4 place
-        formattedData = Object.entries(responseData.data)
-          .filter(([key, value]) => key === "description")
-          .map(([key, value]) => `Description : ${value}`)
-          .join("\n");
+    // Send data to the backend using POST request
+    const response = await fetch(`http://${window.location.hostname}:${port}/record`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
-        var h4Element = document.createElement('h4');
-        h4Element.id = 'comment';
-        h4Element.textContent = formattedData;
-        colDiv.appendChild(h4Element);
+    if (response.ok) {
+      const responseData = await response.json();
+      console.log("Form data submitted successfully!");
 
-        // Append the column div to the row
-        var row = document.getElementById('row');
-        row.appendChild(colDiv);
-      }
+      // Display success message with formatted data
+      //create div class col
+      var colDiv = document.createElement('div');
+      colDiv.className = 'col';
+
+      // Format JSON data for display to h4 fname
+      let formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "first_name")
+        .map(([key, value]) => `${value} `)
+        .join("\n");
+
+      var spanElement = document.createElement('span');
+      spanElement.id = 'fname';
+      spanElement.textContent = formattedData;
+      colDiv.appendChild(spanElement);
+
+      // Format JSON data for display to h4 lname
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "last_name")
+        .map(([key, value]) => `${value}`)
+        .join("\n");
+
+      var spanElement = document.createElement('span');
+      spanElement.id = 'lname';
+      spanElement.textContent = formattedData;
+      colDiv.appendChild(spanElement);
+
+      // Format JSON data for display to h4 IDStudent
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "student_id")
+        .map(([key, value]) => `Student ID : ${value}`)
+        .join("\n");
+
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'IDStudent';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
+
+      // Format JSON data for display to h4 Umail
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "email")
+        .map(([key, value]) => `Email : ${value}`)
+        .join("\n");
+
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Umail';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
+
+      // Format JSON data for display to h4 Act-Title
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "title")
+        .map(([key, value]) => `Title : ${value}`)
+        .join("\n");
+
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Act-Title';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
+
+      // Format JSON data for display to h4 Act-Type
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "type_of_work_id")
+        .map(([key, value]) => `Type of activity : ${value}`)
+        .join("\n");
+
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Act-Type';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
+
+      // Format JSON data for display to h4 Acd-Year
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "academic_year")
+        .map(([key, value]) => `Acadamic year : ${value}`)
+        .join("\n");
+
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Acd-Year';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
+
+      // Format JSON data for display to h4 Sem
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "semester")
+        .map(([key, value]) => `Semester : ${value}`)
+        .join("\n");
+
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'Sem';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
+
+      // Format JSON data for display to h4 start-date
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "start_date")
+        .map(([key, value]) => `Start date : ${value}`)
+        .join("\n");
+
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'start-date';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
+
+      // Format JSON data for display to h4 end-date
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "end_date")
+        .map(([key, value]) => `End date : ${value}`)
+        .join("\n");
+
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'end-date';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
+
+      // Format JSON data for display to h4 place
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "location")
+        .map(([key, value]) => `Location : ${value}`)
+        .join("\n");
+
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'place';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
+
+      // Format JSON data for display to h4 place
+      formattedData = Object.entries(responseData.data)
+        .filter(([key, value]) => key === "description")
+        .map(([key, value]) => `Description : ${value}`)
+        .join("\n");
+
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'comment';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
+
+      // Append the column div to the row
+      var row = document.getElementById('row');
+      row.appendChild(colDiv);
 
       alert("submit success!!!");
 
@@ -326,10 +465,10 @@ async function submitForm(event) {
       // Display error message
       alert("Failed to submit form data. Please try again.");
     }
+  }
   } catch (error) {
     console.error("An error occurred while submitting form data:", error);
   }
-}
 
 // Event listener for form submission
 document.getElementById("myForm").addEventListener("submit", submitForm);
@@ -340,9 +479,3 @@ document
   .getElementById("studentID")
   .addEventListener("input", validateStudentID);
 document.getElementById("email").addEventListener("input", validateEmail);
-
-// Call validateFormOnInput on input for all fields
-const formInputs = document.querySelectorAll("input, select");
-formInputs.forEach((input) => {
-  input.addEventListener("input", validateFormOnInput);
-});
