@@ -148,8 +148,9 @@ async function submitForm(event) {
       body: JSON.stringify(data),
     });
 
+    let responseData;
     if (response.ok) {
-      const responseData = await response.json();
+      responseData = await response.json();
       console.log("Form data submitted successfully!");
 
       alert("submit success!!!");
