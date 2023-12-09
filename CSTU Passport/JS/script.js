@@ -122,18 +122,18 @@ async function submitForm(event) {
   // Create the data object to send to the backend
   const formData = new FormData(event.target);
   const data = {
-    first_name: formData.get("fullname").split(" ")[0],
-    last_name: formData.get("fullname").split(" ")[1],
-    student_id: parseInt(formData.get("studentID")),
-    email: formData.get("email"),
-    title: formData.get("workTitle"),
-    type_of_work_id: parseInt(formData.get("activityType")),
-    academic_year: parseInt(formData.get("academicYear")) - 543,
-    semester: parseInt(formData.get("semester")),
-    start_date: formData.get("startDate"),
-    end_date: formData.get("endDate"),
-    location: formData.get("location"),
-    description: formData.get("description")
+    Firstname: formData.get("fullname").split(" ")[0],
+    Lastname: formData.get("fullname").split(" ")[1],
+    ID: parseInt(formData.get("studentID")),
+    Email: formData.get("email"),
+    Title: formData.get("workTitle"),
+    Activity_Type: parseInt(formData.get("activityType")),
+    Academic_Year: parseInt(formData.get("academicYear")) - 543,
+    Semester: parseInt(formData.get("semester")),
+    Start_date: formData.get("startDate"),
+    End_date: formData.get("endDate"),
+    Location: formData.get("location"),
+    Description: formData.get("description")
   };
 
   console.log(data);
@@ -155,7 +155,7 @@ async function submitForm(event) {
       // Format JSON data for display
       const formattedData = Object.entries(responseData.data)
         .map(([key, value]) => `${key}: ${value}`)
-        .join("\n");
+        .join("<br>");
 
       // Display success message with formatted data
       var colDiv = document.createElement('div');
