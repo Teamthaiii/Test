@@ -158,6 +158,14 @@ async function submitForm(event) {
         .join("\n");
 
       // Display success message with formatted data
+      var colDiv = document.createElement('div');
+      colDiv.className = 'col';
+
+      var h4Element = document.createElement('h4');
+      h4Element.id = 'data';
+      h4Element.textContent = formattedData;
+      colDiv.appendChild(h4Element);
+
       alert(responseData.message + "\n" + formattedData);
 
       var checkboxes = document.querySelectorAll('input[type="checkbox"]');
