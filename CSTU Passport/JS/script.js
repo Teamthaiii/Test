@@ -20,16 +20,16 @@ fetch(`http://${window.location.hostname}:${port}/getrecords`)
       const markup = `<div class="col">
                         <span>${record.first_name}</span>
                         <span>${record.last_name}</span>
-                        <h4>SID : ${record.student_id}</h4>
-                        <h4>Email : ${record.email}</h4>
-                        <h4>Title : ${record.title}</h4>
-                        <h4>Type of work : ${record.type_of_work_id}</h4>
-                        <h4>Academic year : ${record.academic_year}</h4>
-                        <h4>Semester : ${record.semester}</h4>
-                        <h4>Start date : ${record.start_date}</h4>
-                        <h4>End date : ${record.end_date}</h4>
-                        <h4>Location : ${record.location}</h4>
-                        <h4>Description : ${record.description}</h4>
+                        <h4><b>SID :</b> ${record.student_id}</h4>
+                        <h4><b>Email :</b> ${record.email}</h4>
+                        <h4><b>Title :</b> ${record.title}</h4>
+                        <h4><b>Type of work :</b> ${record.type_of_work_id}</h4>
+                        <h4><b>Academic year :</b> ${record.academic_year}</h4>
+                        <h4><b>Semester :</b> ${record.semester}</h4>
+                        <h4><b>Start date :</b> ${record.start_date}</h4>
+                        <h4><b>End date :</b> ${record.end_date}</h4>
+                        <h4><b>Location :</b> ${record.location}</h4>
+                        <h4><b>Description :</b> ${record.description}</h4>
                       </div>
                       `;
       
@@ -188,16 +188,16 @@ async function submitForm(event) {
           const markup = `<div class="col">
                             <span>${record.first_name}</span>
                             <span>${record.last_name}</span>
-                            <h4>SID : ${record.student_id}</h4>
-                            <h4>Email : ${record.email}</h4>
-                            <h4>Title : ${record.title}</h4>
-                            <h4>Type of work : ${record.type_of_work_id}</h4>
-                            <h4>Academic year : ${record.academic_year}</h4>
-                            <h4>Semester : ${record.semester}</h4>
-                            <h4>Start date : ${record.start_date}</h4>
-                            <h4>End date : ${record.end_date}</h4>
-                            <h4>Location : ${record.location}</h4>
-                            <h4>Description : ${record.description}</h4>
+                            <h4><b>SID :</b> ${record.student_id}</h4>
+                            <h4><b>Email :</b> ${record.email}</h4>
+                            <h4><b>Title :</b> ${record.title}</h4>
+                            <h4><b>Type of work :</b> ${record.type_of_work_id}</h4>
+                            <h4><b>Academic year :</b> ${record.academic_year}</h4>
+                            <h4><b>Semester :</b> ${record.semester}</h4>
+                            <h4><b>Start date :</b> ${record.start_date}</h4>
+                            <h4><b>End date :</b> ${record.end_date}</h4>
+                            <h4><b>Location :</b> ${record.location}</h4>
+                            <h4><b>Description :</b> ${record.description}</h4>
                           </div>
                           `;
           
