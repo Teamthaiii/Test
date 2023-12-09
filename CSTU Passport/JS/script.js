@@ -20,7 +20,7 @@ fetch(`http://${window.location.hostname}:${port}/getrecords`)
       const markup = `<div class="col">
                         <span>${record.first_name}</span>
                         <span>${record.last_name}</span>
-                        <h4>SD : ${record.student_id}</h4>
+                        <h4>SID : ${record.student_id}</h4>
                         <h4>Email : ${record.email}</h4>
                         <h4>Title : ${record.title}</h4>
                         <h4>Type of work : ${record.type_of_work_id}</h4>
@@ -188,7 +188,7 @@ async function submitForm(event) {
           const markup = `<div class="col">
                             <span>${record.first_name}</span>
                             <span>${record.last_name}</span>
-                            <h4>SD : ${record.student_id}</h4>
+                            <h4>SID : ${record.student_id}</h4>
                             <h4>Email : ${record.email}</h4>
                             <h4>Title : ${record.title}</h4>
                             <h4>Type of work : ${record.type_of_work_id}</h4>
