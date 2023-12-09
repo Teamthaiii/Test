@@ -190,7 +190,7 @@ document.getElementById("email").addEventListener("input", validateEmail);
 
 let http = new XMLHttpRequest();
 
-http.open('get', `http://${window.location.hostname}:${port}/record`, true);
+http.open('get', '../Backend/databases/records.json', true);
 
 http.send();
 
@@ -222,6 +222,9 @@ http.onload = function() {
 
     // Move the following line outside the loop and correct the selector
     document.querySelector("#row").innerHTML = output;
+    
+  }else {
+    console.error("Failed to load records.json. Status: " + this.status);
   }
 };
 
