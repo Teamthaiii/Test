@@ -154,8 +154,8 @@ async function submitForm(event) {
 
       // Format JSON data for display
       const formattedData = Object.entries(responseData.data)
-        .map(([key, value]) => `${key}: ${value}`)
-        .join("<br>");
+        .map(([Firstname, value]) => `${key}: ${value}`)
+        .join("\n");
 
       // Display success message with formatted data
       var colDiv = document.createElement('div');
