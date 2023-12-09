@@ -152,146 +152,6 @@ async function submitForm(event) {
       const responseData = await response.json();
       console.log("Form data submitted successfully!");
 
-      // // Display success message with formatted data
-      // //create div class col
-      // var colDiv = document.createElement('div');
-      // colDiv.className = 'col';
-
-      // // Format JSON data for display to h4 fname
-      // let formattedData = Object.entries(responseData.data)
-      //   .filter(([key, value]) => key === "first_name")
-      //   .map(([key, value]) => `${value} `)
-      //   .join("\n");
-
-      // var spanElement = document.createElement('span');
-      // spanElement.id = 'fname';
-      // spanElement.textContent = formattedData;
-      // colDiv.appendChild(spanElement);
-
-      // // Format JSON data for display to h4 lname
-      // formattedData = Object.entries(responseData.data)
-      //   .filter(([key, value]) => key === "last_name")
-      //   .map(([key, value]) => `${value}`)
-      //   .join("\n");
-
-      // var spanElement = document.createElement('span');
-      // spanElement.id = 'lname';
-      // spanElement.textContent = formattedData;
-      // colDiv.appendChild(spanElement);
-
-      // // Format JSON data for display to h4 IDStudent
-      // formattedData = Object.entries(responseData.data)
-      //   .filter(([key, value]) => key === "student_id")
-      //   .map(([key, value]) => `Student ID : ${value}`)
-      //   .join("\n");
-
-      // var h4Element = document.createElement('h4');
-      // h4Element.id = 'IDStudent';
-      // h4Element.textContent = formattedData;
-      // colDiv.appendChild(h4Element);
-
-      // // Format JSON data for display to h4 Umail
-      // formattedData = Object.entries(responseData.data)
-      //   .filter(([key, value]) => key === "email")
-      //   .map(([key, value]) => `Email : ${value}`)
-      //   .join("\n");
-
-      // var h4Element = document.createElement('h4');
-      // h4Element.id = 'Umail';
-      // h4Element.textContent = formattedData;
-      // colDiv.appendChild(h4Element);
-
-      // // Format JSON data for display to h4 Act-Title
-      // formattedData = Object.entries(responseData.data)
-      //   .filter(([key, value]) => key === "title")
-      //   .map(([key, value]) => `Title : ${value}`)
-      //   .join("\n");
-
-      // var h4Element = document.createElement('h4');
-      // h4Element.id = 'Act-Title';
-      // h4Element.textContent = formattedData;
-      // colDiv.appendChild(h4Element);
-
-      // // Format JSON data for display to h4 Act-Type
-      // formattedData = Object.entries(responseData.data)
-      //   .filter(([key, value]) => key === "type_of_work_id")
-      //   .map(([key, value]) => `Type of activity : ${value}`)
-      //   .join("\n");
-
-      // var h4Element = document.createElement('h4');
-      // h4Element.id = 'Act-Type';
-      // h4Element.textContent = formattedData;
-      // colDiv.appendChild(h4Element);
-
-      // // Format JSON data for display to h4 Acd-Year
-      // formattedData = Object.entries(responseData.data)
-      //   .filter(([key, value]) => key === "academic_year")
-      //   .map(([key, value]) => `Acadamic year : ${value}`)
-      //   .join("\n");
-
-      // var h4Element = document.createElement('h4');
-      // h4Element.id = 'Acd-Year';
-      // h4Element.textContent = formattedData;
-      // colDiv.appendChild(h4Element);
-
-      // // Format JSON data for display to h4 Sem
-      // formattedData = Object.entries(responseData.data)
-      //   .filter(([key, value]) => key === "semester")
-      //   .map(([key, value]) => `Semester : ${value}`)
-      //   .join("\n");
-
-      // var h4Element = document.createElement('h4');
-      // h4Element.id = 'Sem';
-      // h4Element.textContent = formattedData;
-      // colDiv.appendChild(h4Element);
-
-      // // Format JSON data for display to h4 start-date
-      // formattedData = Object.entries(responseData.data)
-      //   .filter(([key, value]) => key === "start_date")
-      //   .map(([key, value]) => `Start date : ${value}`)
-      //   .join("\n");
-
-      // var h4Element = document.createElement('h4');
-      // h4Element.id = 'start-date';
-      // h4Element.textContent = formattedData;
-      // colDiv.appendChild(h4Element);
-
-      // // Format JSON data for display to h4 end-date
-      // formattedData = Object.entries(responseData.data)
-      //   .filter(([key, value]) => key === "end_date")
-      //   .map(([key, value]) => `End date : ${value}`)
-      //   .join("\n");
-
-      // var h4Element = document.createElement('h4');
-      // h4Element.id = 'end-date';
-      // h4Element.textContent = formattedData;
-      // colDiv.appendChild(h4Element);
-
-      // // Format JSON data for display to h4 place
-      // formattedData = Object.entries(responseData.data)
-      //   .filter(([key, value]) => key === "location")
-      //   .map(([key, value]) => `Location : ${value}`)
-      //   .join("\n");
-
-      // var h4Element = document.createElement('h4');
-      // h4Element.id = 'place';
-      // h4Element.textContent = formattedData;
-      // colDiv.appendChild(h4Element);
-
-      // // Format JSON data for display to h4 place
-      // formattedData = Object.entries(responseData.data)
-      //   .filter(([key, value]) => key === "description")
-      //   .map(([key, value]) => `Description : ${value}`)
-      //   .join("\n");
-
-      // var h4Element = document.createElement('h4');
-      // h4Element.id = 'comment';
-      // h4Element.textContent = formattedData;
-      // colDiv.appendChild(h4Element);
-
-      // // Append the column div to the row
-      // var row = document.getElementById('row');
-      // row.appendChild(colDiv);
 
       alert("submit success!!!");
 
@@ -326,19 +186,22 @@ document
   .addEventListener("input", validateStudentID);
 document.getElementById("email").addEventListener("input", validateEmail);
 
+// ...
+
 let http = new XMLHttpRequest();
 
-http.open('get', 'records.json', true);
+http.open('get', `http://${window.location.hostname}:${port}/record`, true);
 
 http.send();
 
-http.onload = function(){
-  if(this.readyState == 4 && this.status == 200){
+http.onload = function() {
+  if (this.readyState == 4 && this.status == 200) {
     let records = JSON.parse(this.responseText);
 
     let output = "";
 
-    for(let item of records){
+    // Move the row creation outside the loop
+    for (let item of records) {
       output += `
         <div class="row">
           <span class="fname">${item.first_name}</span>
@@ -346,7 +209,7 @@ http.onload = function(){
           <h4 class="IDStudent">${item.student_id}</h4>
           <h4 class="Umail">${item.email}</h4>
           <h4 class="Act-Title">${item.title}</h4>
-          <h4 class="Act-Type">${item.type_of_workd_id}</h4>
+          <h4 class="Act-Type">${item.type_of_work_id}</h4> <!-- Fix typo here -->
           <h4 class="Acd-Year">${item.academic_year}</h4>
           <h4 class="Sem">${item.semester}</h4>
           <h4 class="start-date">${item.start_date}</h4>
@@ -356,6 +219,9 @@ http.onload = function(){
         </div>
       `;
     }
-    document.querySelector(".row").innerHTML = output;
+
+    // Move the following line outside the loop and correct the selector
+    document.querySelector("#row").innerHTML = output;
   }
-}
+};
+
