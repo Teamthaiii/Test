@@ -114,7 +114,6 @@ function populateActivityTypes(activityTypes) {
 
   for (const type of activityTypes) {
     const option = document.createElement("option");
-    option.value = type.id;
     option.textContent = type.value;
     activityTypeSelect.appendChild(option);
   }
