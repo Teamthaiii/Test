@@ -160,7 +160,8 @@ async function submitForm(event) {
       // Format JSON data for display to h4 fname
       let formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "first_name")
-        .map(([key, value]) => `${key}: ${value}`)
+        .filter(([key, value]) => key === "last_name")
+        .map(([key, value]) => `${value}`)
         .join("\n");
 
       var h4Element = document.createElement('h4');
@@ -169,15 +170,15 @@ async function submitForm(event) {
       colDiv.appendChild(h4Element);
 
       // Format JSON data for display to h4 lname
-      formattedData = Object.entries(responseData.data)
-        .filter(([key, value]) => key === "last_name")
-        .map(([key, value]) => `${key}: ${value}`)
-        .join("\n");
+      // formattedData = Object.entries(responseData.data)
+      //   .filter(([key, value]) => key === "last_name")
+      //   .map(([key, value]) => `${key}: ${value}`)
+      //   .join("\n");
 
-      var h4Element = document.createElement('h4');
-      h4Element.id = 'lname';
-      h4Element.textContent = formattedData;
-      colDiv.appendChild(h4Element);
+      // var h4Element = document.createElement('h4');
+      // h4Element.id = 'lname';
+      // h4Element.textContent = formattedData;
+      // colDiv.appendChild(h4Element);
 
       // Format JSON data for display to h4 IDStudent
       formattedData = Object.entries(responseData.data)
