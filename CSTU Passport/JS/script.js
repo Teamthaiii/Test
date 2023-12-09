@@ -160,7 +160,7 @@ async function submitForm(event) {
       // Format JSON data for display to h4 fname
       let formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "first_name")
-        .map(([key, value]) => `${value} `)
+        .map(([key, value]) => `${value}`)
         .join("\n");
 
       var spanElement = document.createElement('span');
@@ -182,7 +182,7 @@ async function submitForm(event) {
       // Format JSON data for display to h4 IDStudent
       formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "student_id")
-        .map(([key, value]) => `${key}: ${value}`)
+        .map(([key, value]) => `Student ID : ${value}`)
         .join("\n");
 
       var h4Element = document.createElement('h4');
@@ -193,7 +193,7 @@ async function submitForm(event) {
       // Format JSON data for display to h4 Umail
       formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "email")
-        .map(([key, value]) => `${key}: ${value}`)
+        .map(([key, value]) => `Email : ${value}`)
         .join("\n");
 
       var h4Element = document.createElement('h4');
@@ -204,7 +204,7 @@ async function submitForm(event) {
       // Format JSON data for display to h4 Act-Title
       formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "title")
-        .map(([key, value]) => `${key}: ${value}`)
+        .map(([key, value]) => `Title : ${value}`)
         .join("\n");
 
       var h4Element = document.createElement('h4');
@@ -215,7 +215,7 @@ async function submitForm(event) {
       // Format JSON data for display to h4 Act-Type
       formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "type_of_work_id")
-        .map(([key, value]) => `${key}: ${value}`)
+        .map(([key, value]) => `Type of activity : ${value}`)
         .join("\n");
 
       var h4Element = document.createElement('h4');
@@ -226,7 +226,7 @@ async function submitForm(event) {
       // Format JSON data for display to h4 Acd-Year
       formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "academic_year")
-        .map(([key, value]) => `${key}: ${value}`)
+        .map(([key, value]) => `Acadamic year : ${value}`)
         .join("\n");
 
       var h4Element = document.createElement('h4');
@@ -237,7 +237,7 @@ async function submitForm(event) {
       // Format JSON data for display to h4 Sem
       formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "semester")
-        .map(([key, value]) => `${key}: ${value}`)
+        .map(([key, value]) => `Semester : ${value}`)
         .join("\n");
 
       var h4Element = document.createElement('h4');
@@ -248,7 +248,7 @@ async function submitForm(event) {
       // Format JSON data for display to h4 start-date
       formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "start_date")
-        .map(([key, value]) => `${key}: ${value}`)
+        .map(([key, value]) => `Start date : ${value}`)
         .join("\n");
 
       var h4Element = document.createElement('h4');
@@ -259,7 +259,7 @@ async function submitForm(event) {
       // Format JSON data for display to h4 end-date
       formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "end_date")
-        .map(([key, value]) => `${key}: ${value}`)
+        .map(([key, value]) => `End date : ${value}`)
         .join("\n");
 
       var h4Element = document.createElement('h4');
@@ -270,7 +270,7 @@ async function submitForm(event) {
       // Format JSON data for display to h4 place
       formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "location")
-        .map(([key, value]) => `${key}: ${value}`)
+        .map(([key, value]) => `location : ${value}`)
         .join("\n");
 
       var h4Element = document.createElement('h4');
@@ -281,7 +281,7 @@ async function submitForm(event) {
       // Format JSON data for display to h4 place
       formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "description")
-        .map(([key, value]) => `${key}: ${value}`)
+        .map(([key, value]) => `Description : ${value}`)
         .join("\n");
 
       var h4Element = document.createElement('h4');
