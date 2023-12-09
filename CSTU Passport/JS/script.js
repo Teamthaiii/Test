@@ -11,32 +11,50 @@ const config = {
 };
 const port = 8000;
 
-fetch(`http://${window.location.hostname}:${port}/records`)
-  .then(res => {
-    return res.json();
-  })
-  .then(data => {
-    data.forEach(record => {
-      const markup = `<div class="col">
-                        <span>${record.first_name}</span>
-                        <span>${record.last_name}</span>
-                        <h4>${record.student_id}</h4>
-                        <h4>${record.email}</h4>
-                        <h4>${record.title}</h4>
-                        <h4>${record.type_of_work_id}</h4>
-                        <h4>${record.academic_year}</h4>
-                        <h4>${record.semester}</h4>
-                        <h4>${record.start_date}</h4>
-                        <h4>${record.end_date}</h4>
-                        <h4>${record.location}</h4>
-                        <h4>${record.description}</h4>
-                      </div>
-                      `;
+// Function to fetch activity types from the backend
+async function fetchRecords() {
+  try {
+    const response = await fetch(`http://${window.location.hostname}:${port}/record`);
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      console.error("Failed to fetch activity types.");
+      return [];
+    }
+  } catch (error) {
+    console.error("An error occurred while fetching activity types:", error);
+    return [];
+  }
+}
 
-      document.querySelector('.row').insertAdjacentHTML('beforeend', markup);
-    });
-  })
-  .catch(error => console.log(error));
+function OnloadRecordDisplay(RecordData){
+  RecordData.forEach(record => {
+    const markup = `<div class="col">
+                      <span>${record.first_name}</span>
+                      <span>${record.last_name}</span>
+                      <h4>${record.student_id}</h4>
+                      <h4>${record.email}</h4>
+                      <h4>${record.title}</h4>
+                      <h4>${record.type_of_work_id}</h4>
+                      <h4>${record.academic_year}</h4>
+                      <h4>${record.semester}</h4>
+                      <h4>${record.start_date}</h4>
+                      <h4>${record.end_date}</h4>
+                      <h4>${record.location}</h4>
+                      <h4>${record.description}</h4>
+                    </div>
+                    `;
+
+    document.querySelector('.row').insertAdjacentHTML('beforeend', markup);
+  });
+}
+
+  // Event listener when the page content has finished loading
+  document.addEventListener("DOMContentLoaded", async () => {
+    const RecordData = await fetchRecords();
+    OnloadRecordDisplay(RecordData);
+  });
 
 // Function to validate Firstname and Lastname
 function validateName() {
