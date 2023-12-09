@@ -190,15 +190,17 @@ document.getElementById("email").addEventListener("input", validateEmail);
 
 let http = new XMLHttpRequest();
 
-http.open('get', '../Backend/databases/records.json', true);
+http.open('GET', '../Backend/databases/records.json', true);
 
 http.send();
 
-http.onload = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    let records = JSON.parse(this.responseText);
+http.onload = function () {
+  if (this.readyState == 4) {
+    if (this.status == 200) {
+      let records = JSON.parse(this.responseText);
+      console.log('File loaded successfully:', records);
 
-    let output = "";
+      let output = "";
 
     // Move the row creation outside the loop
     for (let item of records) {
@@ -220,11 +222,10 @@ http.onload = function() {
       `;
     }
 
-    // Move the following line outside the loop and correct the selector
     document.querySelector("#row").innerHTML = output;
-    
-  }else {
+  } else {
     console.error("Failed to load records.json. Status: " + this.status);
   }
+}
 };
 
