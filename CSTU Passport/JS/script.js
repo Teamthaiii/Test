@@ -160,7 +160,7 @@ async function submitForm(event) {
       // Format JSON data for display to h4 fname
       let formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "first_name")
-        .map(([key, value]) => `${value}`)
+        .map(([key, value]) => `${value} `)
         .join("\n");
 
       var spanElement = document.createElement('span');
@@ -270,7 +270,7 @@ async function submitForm(event) {
       // Format JSON data for display to h4 place
       formattedData = Object.entries(responseData.data)
         .filter(([key, value]) => key === "location")
-        .map(([key, value]) => `location : ${value}`)
+        .map(([key, value]) => `Location : ${value}`)
         .join("\n");
 
       var h4Element = document.createElement('h4');

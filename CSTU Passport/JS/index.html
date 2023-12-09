@@ -129,115 +129,14 @@
 
   <div class="banner">
     <h4>ACTIVITY</h4>
+    <img class="banner-bg" src="../image/bg4.jpg" alt="">
   </div>
 
   <div class="activity-container">
       <div class="row" id="row">
       </div>
   </div>
-
   <!-- JavaScript -->
   <script src="script.js"></script>
-  <script>
-
-    //Function close formbox
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-      function uncheckbox() {
-        checkboxes.forEach(function (checkbox) {
-            checkbox.checked = false;
-        });
-      }
-
-    const name = document.getElementById('fullname');
-    const IDStudent = document.getElementById('studentID');
-    const Umail = document.getElementById('email');
-    const ActTitle = document.getElementById('workTitle');
-    const ActType = document.getElementById('activityType');
-    const AcdYear = document.getElementById('academicYear');
-    const Sem = document.getElementById('semester');
-    const StartDate = document.getElementById('startDate');
-    const EndDate = document.getElementById('endDate');
-    const place = document.getElementById('location');
-    const comment = document.getElementById('description');
-    
-    function addcontent() {
-      // Create a new column div
-      var colDiv = document.createElement('div');
-      colDiv.className = 'col';
-
-      // Create a new h4 element flname
-      var h4Element = document.createElement('h4');
-      h4Element.id = 'flname';
-      h4Element.textContent = name.value;
-      colDiv.appendChild(h4Element);
-
-      // Create a new h4 element IDStudent
-      var h4Element = document.createElement('h4');
-      h4Element.id = 'IDStudent';
-      h4Element.textContent = IDStudent.value;
-      colDiv.appendChild(h4Element);
-
-      // Create a new h4 element University Email
-      var h4Element = document.createElement('h4');
-      h4Element.id = 'Umail';
-      h4Element.textContent = Umail.value;
-      colDiv.appendChild(h4Element);
-
-      // Create a new h4 element Activity Title
-      var h4Element = document.createElement('h4');
-      h4Element.id = 'Act-Title';
-      h4Element.textContent = ActTitle.value;
-      colDiv.appendChild(h4Element);
-
-      // Create a new h4 element Activity Type
-      var h4Element = document.createElement('h4');
-      h4Element.id = 'Act-Type';
-      h4Element.textContent = ActType.value;
-      colDiv.appendChild(h4Element);
-
-      // Create a new h4 element Academic year
-      var h4Element = document.createElement('h4');
-      h4Element.id = 'Acd-Year';
-      h4Element.textContent = AcdYear.value;
-      colDiv.appendChild(h4Element);
-
-      // Create a new h4 element Semester
-      var h4Element = document.createElement('h4');
-      h4Element.id = 'Sem';
-      h4Element.textContent = Sem.value;
-      colDiv.appendChild(h4Element);
-
-      // Create a new h4 element Start Date
-      var h4Element = document.createElement('h4');
-      h4Element.id = 'start-date';
-      h4Element.textContent = StartDate.value;
-      colDiv.appendChild(h4Element);
-
-      // Create a new h4 element End Date
-      var h4Element = document.createElement('h4');
-      h4Element.id = 'end-date';
-      h4Element.textContent = EndDate.value;
-      colDiv.appendChild(h4Element);
-
-      // Create a new h4 element Location
-      var h4Element = document.createElement('h4');
-      h4Element.id = 'place';
-      h4Element.textContent = place.value;
-      colDiv.appendChild(h4Element);
-
-      // Create a new h4 element Description
-      var h4Element = document.createElement('h4');
-      h4Element.id = 'comment';
-      h4Element.textContent = comment.value;
-      colDiv.appendChild(h4Element);
-
-      // Append the column div to the row
-      var row = document.getElementById('row');
-      row.appendChild(colDiv);
-
-
-    }
-
-  </script>
 </body>
 </html>

@@ -15,6 +15,7 @@
 
 body {
   overflow-x: hidden;
+  height: auto;
 }
 /* Styling for navigator */
 .nav-box {
@@ -29,7 +30,7 @@ body {
   justify-content: center;
   align-items: center;
   float: left;
-  transform: translateX(-200px);
+  transform: translateX(-193px);
   position: fixed;
   transition: 0.7s;
   cursor: pointer;
@@ -87,7 +88,7 @@ body {
 }
 
 .nav-box:hover {
-  transform: translateX(-15px);
+  transform: translateX(-10px);
 }
 
 .nav-box h1 {
@@ -104,8 +105,8 @@ body {
 }
 
 #check-upload:checked ~ .form-container{
-  max-width: 1000px;
-  max-height: 160%;
+  max-width: 60%;
+  max-height: 90%;
   top: 3%;
   left: 50%;
   transform: translateX(-50%);
@@ -126,7 +127,8 @@ body {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 20px;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   flex-wrap: nowrap;
   transition: 1.5s;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -135,9 +137,16 @@ body {
   border: rgba(255, 255, 255, 0.18);
   box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.37);
   z-index: 0;
+  color: white;
+  text-shadow: black 0 0 2px,
+                black 0 0 2px,
+                black 0 0 2px;
 }
 
-
+.form-container h1:first-child {
+  text-align: center;
+  font-size: 50px;
+}
 
 /* Center-align the heading and add margin at the bottom */
 .form-container h1 {
@@ -181,18 +190,27 @@ body {
 
 /* Styling for the submit button */
 .form-group input[type="submit"] {
-  background-color: #4caf50;
-  color: white;
+  background-color: white;
+  color: black;
   padding: 10px 15px;
-  border: none;
+  border: 1px solid black;
   border-radius: 4px;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.form-group input[type="submit"]:hover {
+  background-color: #f33466;
+  color: white;
+  border: none;
+  box-shadow: 0 5px 8px 0 #f3346793, 0 5px 30px 1px #ba1c46b3;
 }
 
 /* Styling for small helper text */
 .form-group small {
-  font-size: 12px;
-  color: #888;
+  font-size: 14px;
+  color: rgb(20, 20, 20);
+  text-shadow: none;
 }
 
 /* New styles for error messages */
@@ -207,22 +225,34 @@ body {
   color: red;
   display: block;
   margin-top: 5px;
+  text-shadow: none;
+}
+.banner-bg {
+  z-index: -999;
+  width: 100%;
+  height: 40vh;
+  position: absolute;
+  object-fit: cover;
+  object-position: top;
 }
 
 .banner {
-  height: 30vh;
+  height: 40vh;
   width: 100%;
   margin: 0;
   padding: 0;
-  background: black;
   justify-content: center;
   align-items: center;
   display: flex;
+  overflow: hidden;
+  z-index: 99;
+  box-shadow: #02020273 0 10px 10px;
 }
 
 .banner h4 {
   color: white;
   font-size: 70px;
+  z-index: -99;
 }
 
 .activity-container {
@@ -232,12 +262,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
-
-.block {
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -259,6 +283,12 @@ body {
   transition: 0.5s;
 }
 
-.block-title {
-  font-size: 50px;
+.row span {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.row h4 {
+  font-size: 20px;
+  font-weight: 400;
 }
