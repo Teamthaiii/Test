@@ -11,25 +11,25 @@ const config = {
 };
 const port = 8000;
 
-fetch(`http://${window.location.hostname}:${port}/record`)
+fetch(`http://${window.location.hostname}:${port}/records`)
   .then(res => {
     return res.json();
   })
   .then(data => {
     data.forEach(record => {
       const markup = `<div class="col">
-                      <span>${record.first_name}</span>
-                      <span>${record.last_name}</span>
-                      <h4>${record.student_id}</h4>
-                      <h4>${record.email}</h4>
-                      <h4>${record.title}</h4>
-                      <h4>${record.type_of_work_id}</h4>
-                      <h4>${record.academic_year}</h4>
-                      <h4>${record.semester}</h4>
-                      <h4>${record.start_date}</h4>
-                      <h4>${record.end_date}</h4>
-                      <h4>${record.location}</h4>
-                      <h4>${record.description}</h4>
+                        <span>${record.first_name}</span>
+                        <span>${record.last_name}</span>
+                        <h4>${record.student_id}</h4>
+                        <h4>${record.email}</h4>
+                        <h4>${record.title}</h4>
+                        <h4>${record.type_of_work_id}</h4>
+                        <h4>${record.academic_year}</h4>
+                        <h4>${record.semester}</h4>
+                        <h4>${record.start_date}</h4>
+                        <h4>${record.end_date}</h4>
+                        <h4>${record.location}</h4>
+                        <h4>${record.description}</h4>
                       </div>
                       `;
 
