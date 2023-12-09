@@ -105,7 +105,7 @@ async function submitForm(event) {
   event.preventDefault();
 
   // Validate form inputs before submission
-  if (!validateName() || !validateStudentID() || !validateEmail() || !validateImage()) {
+  if (!validateName() || !validateStudentID() || !validateEmail()) {
     return;
   }
 
@@ -161,16 +161,6 @@ async function submitForm(event) {
       alert(responseData.message + "\n" + formattedData);
 
       document.getElementById("myForm").reset();
-
-      //Function close formbox
-      var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-      function uncheckbox() {
-        checkboxes.forEach(function (checkbox) {
-            checkbox.checked = false;
-        });
-      }
-
-      uncheckbox()
     } else {
       console.error("Failed to submit form data.");
 

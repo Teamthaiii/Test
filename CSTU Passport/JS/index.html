@@ -140,6 +140,14 @@
   <script src="script.js"></script>
   <script>
 
+    //Function close formbox
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      function uncheckbox() {
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = false;
+        });
+      }
+
     const name = document.getElementById('fullname');
     const IDStudent = document.getElementById('studentID');
     const Umail = document.getElementById('email');
