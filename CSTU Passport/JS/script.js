@@ -44,8 +44,8 @@ async function fetchRecords() {
   try {
     const response = await fetch(`http://${window.location.hostname}:${port}/record`);
     if (response.ok) {
-      console.log("fetch success!!");
       const data = await response.json();
+      console.log(data);
       return data;
     } else {
       console.error("Failed to fetch records.");
