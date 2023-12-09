@@ -78,6 +78,12 @@ function OnloadRecordDisplay(RecordData){
     document.querySelector('.row').insertAdjacentHTML('beforeend', markup);
   });
 }
+
+  // Event listener when the page content has finished loading
+  document.addEventListener("DOMContentLoaded", async () => {
+    const RecordData = await fetchRecords();
+    OnloadRecordDisplay(RecordData);
+  });
   
 // // Function to validate Firstname and Lastname
 // function validateName() {
