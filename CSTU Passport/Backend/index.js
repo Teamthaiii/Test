@@ -158,10 +158,15 @@ app.get('/getlatestrecord', (req, res) => {
 
     try {
       const records = JSON.parse(data);
-      
+
+      // Ensure timestamps are parsed as numbers
+      records.forEach(record => {
+        record.timestamp = Number(record.timestamp);
+      });
+
       // Fetch the latest record (based on timestamp or any other criteria)
-      const latestRecord = records.sort((a, b) => b.timestamp - a.timestamp)[0];
-      
+      const latestRecord = records.sort((a, b) => a.timestamp - b.timestamp).pop();
+
       return res.status(200).json(latestRecord);
     } catch (err) {
       console.error('Error parsing records.json:', err);
