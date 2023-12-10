@@ -20,10 +20,10 @@ sudo npm install pm2 -g
 cd /home/ec2-user
 
 # Clone the repository
-git clone https://github.com/Teamthaiii/Test.git
+git clone https://github.com/SuwaphatTor/CS100-Project-16.git
 
 # Navigate to the project directory and install dependencies
-cd Test/CSTU\ Passport/Backend
+cd CS100-Project-16/CSTU\ Passport/Backend
 sudo npm install
 
 # Start the application using pm2
@@ -41,11 +41,11 @@ sudo yum install -y nginx
 sudo systemctl start nginx
 sudo systemctl enable nginx
 
-sudo cp -r /home/ec2-user/Test/'CSTU Passport'/JS /usr/share/nginx/html/
-sudo cp -r /home/ec2-user/Test/'CSTU Passport'/image /usr/share/nginx/html/
-sudo cp /home/ec2-user/Test/'CSTU Passport'/index.html /usr/share/nginx/html/
-sudo cp /home/ec2-user/Test/'CSTU Passport'/script.js /usr/share/nginx/html/
-sudo cp /home/ec2-user/Test/'CSTU Passport'/styles.css /usr/share/nginx/html/
+sudo cp -r /home/ec2-user/CS100-Project-16/'CSTU Passport'/JS /usr/share/nginx/html/
+sudo cp -r /home/ec2-user/CS100-Project-16/'CSTU Passport'/image /usr/share/nginx/html/
+sudo cp /home/ec2-user/CS100-Project-16/'CSTU Passport'/index.html /usr/share/nginx/html/
+sudo cp /home/ec2-user/CS100-Project-16/'CSTU Passport'/script.js /usr/share/nginx/html/
+sudo cp /home/ec2-user/CS100-Project-16/'CSTU Passport'/styles.css /usr/share/nginx/html/
 
 # Restart Nginx to reflect the changes
 sudo systemctl restart nginx
