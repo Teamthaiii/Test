@@ -148,7 +148,6 @@ app.get('/getrecords', (req, res) => {
 });
 
 
-// GET latestrecord
 app.get('/getlatestrecord', (req, res) => {
   // Read the records from 'records.json' file
   fs.readFile('databases/records.json', 'utf8', (err, data) => {
@@ -161,7 +160,7 @@ app.get('/getlatestrecord', (req, res) => {
       const records = JSON.parse(data);
       
       // Fetch the latest record (based on timestamp or any other criteria)
-      const latestRecord = records.sort((a, b) => a.timestamp - b.timestamp).pop();
+      const latestRecord = records.sort((a, b) => b.timestamp - a.timestamp)[0];
       
       return res.status(200).json(latestRecord);
     } catch (err) {
@@ -170,6 +169,7 @@ app.get('/getlatestrecord', (req, res) => {
     }
   });
 });
+
 
 
 // GET endpoint to retrieve list of passport form from 'records.json' file

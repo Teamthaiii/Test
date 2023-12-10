@@ -38,28 +38,28 @@ body {
 }
 
 #nav-box-home .bi {
-  text-shadow: 0 0 0px rgba(18, 61, 61, 0),
-                 0 0 0px rgba(31, 83, 83, 0);
+  text-shadow: 0 0 4px #f3346793,
+                 0 0 4px #f3346793;
+  opacity: 0;
   animation: blinking2 1.5s infinite alternate;
 }
 
 @keyframes blinking2 {
   100%{
-    text-shadow: 0 0 4px #f3346793,
-                 0 0 4px #f3346793;
+    opacity: 1;
   }
 }
 
 #nav-box-upload .bi {
-  text-shadow: 0 0 0px rgba(18, 61, 61, 0),
-                 0 0 0px rgba(31, 83, 83, 0);
+  text-shadow: 0 0 5px rgb(248, 248, 248),
+                 0 0 5px rgb(255, 255, 255);
+  opacity: 0;
   animation: blinking 1.5s infinite alternate;
 }
 
 @keyframes blinking {
   100%{
-    text-shadow: 0 0 5px rgb(248, 248, 248),
-                 0 0 5px rgb(255, 255, 255);
+    opacity: 1;
   }
 }
 
