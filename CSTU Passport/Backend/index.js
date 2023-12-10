@@ -147,6 +147,30 @@ app.get('/getrecords', (req, res) => {
   });
 });
 
+
+// GET latestrecord
+app.get('/getlatestrecord', (req, res) => {
+  // Read the records from 'records.json' file
+  fs.readFile('databases/records.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading records.json:', err);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+
+    try {
+      const records = JSON.parse(data);
+      
+      // Fetch the latest record (based on timestamp or any other criteria)
+      const latestRecord = records.sort((a, b) => b.timestamp - a.timestamp)[0];
+      
+      return res.status(200).json(latestRecord);
+    } catch (err) {
+      console.error('Error parsing records.json:', err);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+});
+
 // GET endpoint to retrieve list of passport form from 'records.json' file
 app.get('/getPassports', (req, res) => {
   fs.readFile('databases/records.json', 'utf8', (err, data) => {

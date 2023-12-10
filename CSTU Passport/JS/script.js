@@ -189,13 +189,10 @@ async function submitForm(event) {
 
       // Display success message with formatted data
     //fetch and create html tag for display
-      fetch(`http://${window.location.hostname}:${port}/getrecords`)
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        data.forEach(record => {
-          const markup = `<div class="col">
+      fetch(`http://${window.location.hostname}:${port}/getlatestrecord`)
+      .then(res => res.json())
+      .then(record => {
+        const markup = `<div class="col">
                             <span>${record.first_name}</span>
                             <span>${record.last_name}</span>
                             <h4><b>SID :</b> ${record.student_id}</h4>
@@ -212,8 +209,7 @@ async function submitForm(event) {
                           `;
           
               document.querySelector('.row').insertAdjacentHTML('beforeend', markup);
-        });
-      })
+        })
       .catch(error => console.log(error));
 
       alert("submit success!!!");
